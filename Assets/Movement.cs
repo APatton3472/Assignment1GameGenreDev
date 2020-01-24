@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float speed = 2.0f;
+    public float jump = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,10 +18,8 @@ public class Movement : MonoBehaviour
     {
         float xMov = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
 
-        float yMov = Input.GetAxis("Jump") * speed * Time.deltaTime;
+        float yMov = Input.GetAxis("Jump") * jump * Time.deltaTime;
 
-        this.transform.position = new Vector3(this.transform.position.x + xMov, this.transform.position.y, this.transform.position.z);
-
-        this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + yMov, this.transform.position.z);
+        this.transform.position = new Vector3(this.transform.position.x + xMov, this.transform.position.y + yMov, this.transform.position.z);
     }
 }
