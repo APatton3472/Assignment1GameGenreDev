@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float speed = 2.0f;
-    // Start is called before the first frame update
+    //found at https://forum.unity.com/threads/moving-an-object-back-and-forth-on-a-single-axis-automatically.235033/
+    public float min = 2f;
+    public float max = 3f;
+    // Use this for initialization
     void Start()
     {
-        
+
+        min = transform.position.x;
+        max = transform.position.x + 3;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        int enemyalive = 1;
-        if (enemyalive == 1)
-        {
-            this.transform.position = new Vector3(this.transform.position.x +(speed * Time.deltaTime),this.transform.position.y, this.transform.position.z);
-            this.transform.position = new Vector3(this.transform.position.x -(speed * Time.deltaTime), this.transform.position.y, this.transform.position.z);
-        }
-        
+
+
+        transform.position = new Vector3(Mathf.PingPong(Time.time * 2, max - min) + min, transform.position.y, transform.position.z);
+
     }
 }
