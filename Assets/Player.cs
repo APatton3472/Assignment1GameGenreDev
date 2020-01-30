@@ -14,8 +14,12 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.LoadLevel(2);
+        }
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
