@@ -8,4 +8,8 @@ public class PlayButtonScript : MonoBehaviour
     {
         Application.LoadLevel(1);
     }
+    public void credits()
+    {
+        Application.LoadLevel(4);
+    }
 }
