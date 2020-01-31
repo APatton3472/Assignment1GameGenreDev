@@ -30,8 +30,20 @@ public class Player : MonoBehaviour
         } 
     }
 
-    void Die()
+    void OnCollisionEnter(Collision rigidbody)
     {
-        Application.LoadLevel(Application.loadedLevel);
+        if (rigidbody.gameObject.tag == "Enemy")
+        {
+            currentHealth = currentHealth - 1;
+        }
+        if (rigidbody.gameObject.tag == "Finish")
+        {
+            Application.LoadLevel(3);
+        }
+    }
+
+        void Die()
+    {
+        Application.LoadLevel(2);
     }
 }
